@@ -1,0 +1,22 @@
+{
+  "name": "hrms-flow",
+  "version": "1.0.0",
+  "description": "page desings for hrms-flow client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adi1496/design-hrms-flow.git"
+  },
+  "author": "Adrian Matei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adi1496/design-hrms-flow/issues"
+  },
+  "homepage": "https://github.com/adi1496/design-hrms-flow#readme",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
