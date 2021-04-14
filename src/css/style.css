@@ -55,17 +55,33 @@ body {
     color: inherit;
     font-size: 1.6rem;
     margin-bottom: 1rem; }
-  .login__input {
+  .login__input, .login__select {
+    font-size: 1.6rem;
     color: inherit;
     font-family: inherit;
     border: 1px solid;
     border-color: inherit;
     border-radius: 5px;
     outline: none;
-    font-size: 1.6rem;
     padding: 1rem;
     display: inline-block;
     width: 100%; }
+  .login__select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
+  .login__select-div {
+    position: relative; }
+  .login__select-div::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: .5rem;
+    transform: translate(0, -50%);
+    width: 2rem;
+    height: 1rem;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background-color: #001d3d; }
   .login__button {
     cursor: pointer;
     background-color: #001d3d;
