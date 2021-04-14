@@ -1,0 +1,32 @@
+
+// #000814
+// #001d3d
+// #003566
+// #ffc300
+// #ffd60a
+
+$color-primary: #001d3d;
+$color-primary-dark: #000814;
+$color-primary-light: #003566;
+
+$color-secondary: #ffd60a;
+$color-secondary-dark: #ffc300;
+html {
+    font-size: 62.5%; // 1rem = 10px
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+}

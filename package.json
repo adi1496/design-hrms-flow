@@ -4,7 +4,7 @@
   "description": "page desings for hrms-flow client",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:scss": "node-sass -w src/scss/main.scss src/css/style.css"
   },
   "repository": {
     "type": "git",
