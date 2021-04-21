@@ -29,13 +29,19 @@
     flex-direction: column;
     padding-bottom: 5rem;
 
-    // @media only screen and(max-width: 1000px) {
-    //     width: 80%;
-    // }
+    @media only screen and(max-width: $bp-extra_large) {
+        width: 80%;
+    }
 
-    // @media only screen and(max-width: 550px) {
-    //     width: 100%;
-    // }
+    @media only screen and(max-width: $bp-large) {
+        width: 90%;
+    }
+
+    @media only screen and(max-width: $bp-medium) {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
 
     &__logo{
         display: flex;
@@ -52,6 +58,15 @@
         margin: 1rem auto;
         gap: 3rem 2rem;
         // width: auto;
+
+        @media only screen and(max-width: $bp-medium) {
+            width: 80%;
+        }
+
+        @media only screen and(max-width: $bp-small) {
+            width: 100%;
+            padding: 0 1rem;
+        }
     }
 
     &__welcome {

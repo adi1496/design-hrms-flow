@@ -1,13 +1,4 @@
-
-// #000814
-// #001d3d
-// #003566
-// #ffc300
-// #ffd60a
-
-// #7D84FF
-// #F265FF
-
+// colors
 $color-primary: #001d3d;
 $color-primary-dark: #000814;
 $color-primary-light: #003566;
@@ -17,10 +8,24 @@ $color-secondary-dark: #ffc300;
 
 $color-special1: #7D84FF;
 $color-special2: #F265FF;
+$color-text: #ffffff;
+
+
+// break-points
+$bp-extra_large: 75em;
+$bp-large: 56.25em;
+$bp-medium: 46.875em;
+$bp-small: 28.125em;
+
+
 
 html {
     font-size: 62.5%; // 1rem = 10px
     box-sizing: border-box;
+
+    @media only screen and(max-width: $bp-large) {
+        font-size: 50%;
+    }
 }
 
 *,
@@ -36,4 +41,9 @@ body {
     font-weight: 400;
     line-height: 1.6;
     min-height: 100vh;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
 }
