@@ -4,7 +4,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box; }
-  @media only screen and (max-width: 56.25em) {
+  @media only screen and (max-width: 59.375em) {
     html {
       font-size: 50%; } }
 
@@ -20,6 +20,12 @@ body {
   font-weight: 400;
   line-height: 1.6;
   min-height: 100vh; }
+
+.body-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); }
 
 a:link,
 a:visited {
@@ -37,7 +43,17 @@ a:visited {
   100% {
     transform: translateY(0); } }
 
+.main {
+  grid-column: 3 / -1; }
+  @media only screen and (max-width: 75em) {
+    .main {
+      grid-column: 4 / -1; } }
+  @media only screen and (max-width: 46.875em) {
+    .main {
+      grid-column: 1 / -1; } }
+
 .header {
+  grid-column: 1 / -1;
   width: 100%;
   height: var(--header-height);
   background-image: linear-gradient(to right, #7D84FF, #F265FF); }
@@ -109,9 +125,21 @@ a:visited {
     clip-path: polygon(0 0, 50% 60%, 100% 0, 50% 100%, 0 0); }
 
 .user-nav {
-  width: 25rem;
+  grid-column: 1 / 3;
   height: calc(100vh - var(--header-height));
-  background-color: #003566; }
+  background-color: #003566;
+  transform: translateX(0); }
+  @media only screen and (max-width: 75em) {
+    .user-nav {
+      grid-column: 1 / 4; } }
+  @media only screen and (max-width: 46.875em) {
+    .user-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 25rem; }
+      .user-nav--hidden {
+        transform: translateX(-100%); } }
   .user-nav__user-tools {
     display: flex;
     flex-direction: column;
@@ -155,14 +183,14 @@ a:visited {
     display: flex;
     flex-direction: column; }
 
-.main {
+.main-login {
   width: 100%;
   height: 100%;
   position: relative;
   display: flex;
   justify-content: center; }
 
-.main::after {
+.main-login::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -185,7 +213,7 @@ a:visited {
   @media only screen and (max-width: 75em) {
     .login {
       width: 80%; } }
-  @media only screen and (max-width: 56.25em) {
+  @media only screen and (max-width: 59.375em) {
     .login {
       width: 90%; } }
   @media only screen and (max-width: 46.875em) {
@@ -279,6 +307,152 @@ a:visited {
     outline: none;
     text-decoration: none;
     color: #F265FF; }
+
+.profile {
+  width: 100%;
+  height: 100%;
+  padding: 4rem 2rem; }
+  .profile__user-information {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    padding-bottom: 4rem;
+    border-bottom: 2px solid #001d3d; }
+  .profile__details {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 3rem; }
+  .profile__img {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%; }
+    @media only screen and (max-width: 46.875em) {
+      .profile__img {
+        width: 20rem;
+        height: 20rem; } }
+  .profile__user-description {
+    font-size: 1.5rem; }
+  .profile__name {
+    font-size: 3rem;
+    font-weight: 400;
+    color: #7D84FF; }
+  .profile__position {
+    font-size: 1.7rem; }
+  .profile__employed-time {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #000814; }
+  .profile__infos {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 1.5rem 2rem;
+    margin-bottom: 2rem; }
+    .profile__infos--right {
+      color: #003566;
+      font-weight: 600; }
+  .profile__contact {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #7D84FF; }
+    .profile__contact:not(:last-of-type) {
+      margin-bottom: 1rem; }
+    .profile__contact:hover {
+      color: #F265FF; }
+    .profile__contact--icon {
+      width: 2rem;
+      height: 2rem;
+      fill: #7D84FF;
+      margin-right: 1.5rem; }
+  @media only screen and (max-width: 75em) {
+    .profile__details-actions {
+      display: flex;
+      flex-direction: column; } }
+  .profile__delete, .profile__suspend, .profile__edit {
+    padding: .5rem 2rem;
+    font-size: 1.4rem;
+    border: none;
+    font-family: inherit;
+    margin-right: 1rem;
+    cursor: pointer; }
+    @media only screen and (max-width: 75em) {
+      .profile__delete, .profile__suspend, .profile__edit {
+        margin-right: 0; }
+        .profile__delete:not(:last-of-type), .profile__suspend:not(:last-of-type), .profile__edit:not(:last-of-type) {
+          margin-bottom: 2rem; } }
+  .profile__delete {
+    color: red;
+    background-color: #ffffff;
+    border: 1px solid red; }
+    .profile__delete:hover {
+      color: #ffffff;
+      background-color: red; }
+  .profile__suspend {
+    color: #F265FF;
+    background-color: #ffffff;
+    border: 1px solid #F265FF; }
+    .profile__suspend:hover {
+      color: #ffffff;
+      background-color: #F265FF; }
+  .profile__edit {
+    color: #ffffff;
+    background-color: #F265FF;
+    margin-right: 5rem; }
+    .profile__edit:hover {
+      background-color: rgba(242, 101, 255, 0.6); }
+  .profile__tabs {
+    margin-top: 2rem;
+    display: flex; }
+  .profile__tab {
+    color: #7D84FF;
+    background-color: #ffffff;
+    font-family: inherit;
+    display: block;
+    border: 1px solid #7D84FF;
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    cursor: pointer; }
+    .profile__tab:last-of-type {
+      border-top-right-radius: 10px; }
+    .profile__tab:first-of-type {
+      border-top-left-radius: 10px; }
+    .profile__tab:hover {
+      color: #ffffff;
+      background-color: #7D84FF; }
+    .profile__tab--active {
+      border-bottom: none;
+      color: #F265FF; }
+  .profile__personal-info {
+    border-bottom: 1px solid #7D84FF;
+    border-left: 1px solid #7D84FF;
+    padding-top: 4rem;
+    padding-left: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem; }
+  .profile__personal-data-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #F265FF; }
+  .profile__info-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    min-height: 4rem;
+    font-size: 1.5rem;
+    width: 60%; }
+    @media only screen and (max-width: 75em) {
+      .profile__info-box {
+        width: 80%; } }
+    @media only screen and (max-width: 59.375em) {
+      .profile__info-box {
+        width: 100%; } }
+  .profile__info-label {
+    color: #4a54ff; }
+  .profile__info-value {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #7D84FF; }
 
 .logo-login {
   width: 30rem;

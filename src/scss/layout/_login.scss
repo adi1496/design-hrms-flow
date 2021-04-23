@@ -1,4 +1,4 @@
-.main {
+.main-login {
     // min-height: 100vh;
     width: 100%;
     height: 100%;
@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-.main::after {
+.main-login::after {
     content: "";
     position: absolute;
     width: 100%;
