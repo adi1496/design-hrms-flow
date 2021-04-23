@@ -43,6 +43,18 @@ a:visited {
   100% {
     transform: translateY(0); } }
 
+@keyframes progress-bar-placeholder {
+  0% {
+    width: 1%; }
+  100% {
+    width: 100%; } }
+
+@keyframes progress-bar-light {
+  0% {
+    left: 0; }
+  100% {
+    left: 100%; } }
+
 .main {
   grid-column: 3 / -1; }
   @media only screen and (max-width: 75em) {
@@ -126,7 +138,7 @@ a:visited {
 
 .user-nav {
   grid-column: 1 / 3;
-  height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - var(--header-height));
   background-color: #003566;
   transform: translateX(0); }
   @media only screen and (max-width: 75em) {
@@ -453,6 +465,103 @@ a:visited {
     font-size: 1.5rem;
     font-weight: 300;
     color: #7D84FF; }
+
+.onboarding {
+  width: 100%;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: max-content 1fr; }
+  .onboarding__title {
+    color: #7D84FF;
+    grid-column: 1 / -1;
+    font-size: 3rem;
+    text-align: center; }
+    .onboarding__title span {
+      color: #F265FF; }
+  .onboarding__progress {
+    grid-column: 1 / -1;
+    height: 1rem;
+    background-color: #F265FF;
+    border-radius: 100px;
+    position: relative;
+    overflow-x: hidden;
+    margin-bottom: 5rem; }
+  .onboarding__progress::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5rem;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: progress-bar-light 3s ease-in infinite; }
+  .onboarding__progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #7D84FF;
+    border-radius: 100px;
+    animation: progress-bar-placeholder 10s ease-in; }
+  .onboarding__photo {
+    margin-top: 10rem; }
+  .onboarding__img {
+    width: 50rem; }
+  .onboarding__form {
+    padding: 3rem 4rem;
+    color: #4a54ff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem; }
+  .onboarding__form-box {
+    font-size: 1.6rem;
+    display: grid;
+    grid-template-columns: max-content; }
+    .onboarding__form-box:not(:last-of-type) {
+      margin-bottom: 1rem; }
+  .onboarding__input, .onboarding__select, .onboarding__date {
+    font-family: inherit;
+    padding: .5rem 1rem;
+    border: 1px solid #F265FF;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.6rem;
+    color: #7D84FF; }
+  .onboarding__buttons {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start; }
+  .onboarding__button {
+    margin-top: 3rem;
+    font-family: inherit;
+    font-size: 1.7rem;
+    padding: 1rem 1rem;
+    border: none;
+    width: 8rem;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; }
+    .onboarding__button--next {
+      justify-self: end;
+      background-color: #7D84FF;
+      text-align: left;
+      clip-path: polygon(0 0, 70% 0, 100% 50%, 70% 100%, 0 100%); }
+    .onboarding__button--back {
+      background-color: #F265FF;
+      text-align: right;
+      clip-path: polygon(100% 0, 30% 0, 0 50%, 30% 100%, 100% 100%); }
+  .onboarding__button::after {
+    visibility: hidden;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4); }
+  .onboarding__button:hover::after {
+    visibility: visible; }
 
 .logo-login {
   width: 30rem;

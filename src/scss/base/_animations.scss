@@ -19,3 +19,23 @@
         transform: translateY(0);
     }
 }
+
+@keyframes progress-bar-placeholder {
+    0%{
+        width: 1%;
+    }
+
+    100%{
+        width: 100%;
+    }
+}
+
+@keyframes progress-bar-light {
+    0%{
+        left: 0;
+    }
+
+    100%{
+        left: 100%;
+    }
+}

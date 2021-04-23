@@ -4,7 +4,11 @@
   "description": "page desings for hrms-flow client",
   "main": "index.js",
   "scripts": {
-    "watch:scss": "node-sass -w src/scss/main.scss src/css/style.css"
+    "watch:scss": "node-sass -w src/scss/main.scss src/css/style.css",
+    "compile:scss": "node-sass src/scss/main.scss dest/css/style.build.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' ./dest/css/style.build.css -o dest/css/style.prefix.css",
+    "compress:css": "node-sass ./dest/css/style.prefix.css ./dest/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:scss prefix:css compress:css"
   },
   "repository": {
     "type": "git",
@@ -17,6 +21,9 @@
   },
   "homepage": "https://github.com/adi1496/design-hrms-flow#readme",
   "devDependencies": {
-    "node-sass": "^5.0.0"
+    "autoprefixer": "^10.2.5",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^8.3.1"
   }
 }
